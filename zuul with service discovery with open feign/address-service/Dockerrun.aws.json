@@ -1,0 +1,17 @@
+{
+  "AWSEBDockerrunVersion": 2,
+  "containerDefinitions": [
+    {
+      "name": "addressservice",
+      "image": "surespraja/addressservice:v8",
+      "essential": true,
+      "memory": 256,
+      "portMappings": [
+        {
+          "hostPort": 8099,
+          "containerPort": 8099
+        }
+      ]
+    }
+  ]
+}

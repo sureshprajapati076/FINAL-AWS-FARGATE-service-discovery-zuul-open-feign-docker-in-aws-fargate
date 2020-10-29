@@ -1,0 +1,61 @@
+{
+  "AWSEBDockerrunVersion": 2,
+  "volumes":[
+    {
+      "name": "mongodb",
+      "host": {
+        "sourcePath": "/var/app/mongodb"
+      }
+    },
+    {
+      "name": "mongodemo",
+      "host": {
+        "sourcePath": "/var/app/mongodemo"
+      }
+    }
+  ],
+  "containerDefinitions": [
+    {
+      "name": "mongodb",
+      "image": "mongo:latest",
+      "memory": 128,
+      "portMappings": [
+        {
+          "hostPort": 27017,
+          "containerPort": 27017
+        }
+      ],
+      "mountPoints": [
+        {
+          "sourceVolume": "mongodb",
+          "containerPath": "/data/db"
+        },
+        {
+          "sourceVolume": "mongodb",
+          "containerPath": "/data/configdb"
+        }
+      ]
+    },
+    {
+      "name": "securedapi",
+      "image": "surespraja/securedapigateway:v8",
+      "essential": true,
+      "memory": 256,
+      "portMappings": [
+        {
+          "hostPort": 2020,
+          "containerPort": 2020
+        }
+      ],
+      "links": [
+        "mongodb"
+      ],
+      "mountPoints":[
+        {
+          "sourceVolume": "mongodemo",
+          "containerPath": "/mongodemo"
+        }
+      ]
+    }
+  ]
+}

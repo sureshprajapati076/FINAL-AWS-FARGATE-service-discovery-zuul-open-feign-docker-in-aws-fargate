@@ -1,0 +1,49 @@
+POST http://localhost:2020/signin
+Content-Type: application/json
+
+{
+    "username":"admin@gmail.com",
+    "password":"admin"
+}
+
+###
+POST http://localhost:2020/signup
+Content-Type: application/json
+
+{
+    "email":"admin@gmail.com",
+    "password":"admin",
+    "name":"admin",
+    "address":"thimi",
+    "roles":["ADMIN","USER"]
+
+}
+
+###
+GET http://localhost:2020/student-api/name
+Content-Type: application/json
+
+###
+GET http://localhost:2020/student-api/callAddressFromStudent
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJleHAiOjE2MDI1NzE0NzUsImlhdCI6MTYwMjU1MzQ3NX0.42lp_RKXX6SO-cWinhh_gS1K1-AWwHR-b0L315TACETowcytenHe5d1ULs98R8h94tR6ADVT1WxO6AG8wXLlAg
+
+
+###
+GET http://localhost:2020/address-api/getAddress
+Content-Type: application/json
+
+###
+GET http://localhost:2020/address-api/getStudentName
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJleHAiOjE1OTQxMDMxMjIsImlhdCI6MTU5NDA4NTEyMn0.NDFbAa7YQljj3CR-PnWOAhIvnhxPFPNQXlARNHF5FiF7pKr7JYkWrp43ifz5R38SVGcsjBeB4e8XIfHqrqYw6Q
+
+### FOllowing is example for pathvariable in open feign
+GET http://localhost:2020/student-api/callAddressWithPathVariable/34
+Content-Type: application/json
+
+### Following is for pathvaraible plus query parameter in open feign
+GET http://localhost:2020/student-api/callAddressWithPathVariable/34?addressId=45
+Content-Type: application/json
+
+

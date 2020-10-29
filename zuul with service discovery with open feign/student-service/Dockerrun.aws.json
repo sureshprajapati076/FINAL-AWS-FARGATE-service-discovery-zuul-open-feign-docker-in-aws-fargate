@@ -1,0 +1,17 @@
+{
+  "AWSEBDockerrunVersion": 2,
+  "containerDefinitions": [
+    {
+      "name": "studentservice",
+      "image": "surespraja/studentservice:v8",
+      "essential": true,
+      "memory": 256,
+      "portMappings": [
+        {
+          "hostPort": 8098,
+          "containerPort": 8098
+        }
+      ]
+    }
+  ]
+}
